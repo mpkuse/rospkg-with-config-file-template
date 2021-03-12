@@ -1,0 +1,26 @@
+<launch>
+    <!-- command line arguments for roslaunch
+            roslaunch rospkg-with-config-file-template run_me.launch  mode:="jello"
+    -->
+    <arg name="mode"/>
+
+
+    <node pkg="rospkg-with-config-file-template" type="my_node" name="my_node" output="screen" clear_params="true">
+
+        <rosparam file="$(find rospkg-with-config-file-template)/config/sample_config.yaml" command="load" />
+        <!-- <rosparam file="$(find rospkg-with-config-file-template)/config/sample_config.yaml" command="load" ns="global_costmap" /> -->
+
+        <rosparam>
+            my_param: "hello world"
+        </rosparam>
+
+        <rosparam param="a_list">[1.1, 2.65, 3, 4]</rosparam>
+
+
+        <rosparam param="modeX" subst_value="True">$(arg mode)</rosparam>
+
+
+
+    </node>
+
+</launch>

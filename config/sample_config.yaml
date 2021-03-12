@@ -1,0 +1,6 @@
+ODOMETRY_TOPIC_NAME: "/super_topic"
+OUTPUT_ODOM_TOPIC_NAME: "custom_outpit_topic"
+
+imu_param:
+    gyro_bias: 20
+    accelerometer_bias: 40.
